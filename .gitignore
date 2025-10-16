@@ -5,6 +5,7 @@ firestore-debug.log
 ui-debug.log
 functions/node_modules/
 functions/.runtimeconfig.json
+.firebaserc
 
 # Environment variables
 .env
@@ -32,3 +33,6 @@ Thumbs.db
 *.backup
 *.bak
 *~
+
+# Development
+dev-website/
