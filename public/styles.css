@@ -250,6 +250,17 @@ a:hover {
     letter-spacing: 0.05em;
     color: var(--color-white);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+.hero-subtitle {
+    font-family: var(--font-secondary);
+    font-size: clamp(16px, 2vw, 20px);
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--color-white);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    max-width: 600px;
 }
 
 /* ===================================
@@ -441,8 +452,9 @@ a:hover {
 }
 
 .newsletter-form button:hover {
-    background-color: var(--color-primary-light);
-    border-color: var(--color-primary-light);
+    background-color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+    transform: translateY(-2px);
 }
 
 .form-message {
@@ -1070,11 +1082,11 @@ a:hover {
 }
 
 .btn-primary:hover {
-    background-color: var(--color-primary-light);
-    border-color: var(--color-primary-light);
+    background-color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
     color: var(--color-white);
     transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(196, 83, 8, 0.3);
+    box-shadow: 0 4px 12px rgba(196, 83, 8, 0.4);
 }
 
 /* ===================================
