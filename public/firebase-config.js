@@ -1,7 +1,7 @@
 // Firebase Configuration
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
-import { getFunctions, httpsCallable } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-functions.js";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-app.js";
+import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-analytics.js";
+import { getFunctions, httpsCallable, connectFunctionsEmulator } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-functions.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -17,6 +17,9 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
-const functions = getFunctions(app);
+const functions = getFunctions(app, 'us-central1');
+
+// Uncomment for local testing:
+// connectFunctionsEmulator(functions, "localhost", 5001);
 
 export { app, analytics, functions, httpsCallable };
