@@ -7,6 +7,25 @@
     <title>Services | DEV Limited - Web Development & Emerging Tech</title>
     <meta name="description" content="Custom web development, VR applications, and emerging technologies. We build what others won't—prototypes, proofs-of-concept, and specialized solutions.">
 
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://devlimited.org/services.html">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://devlimited.org/services.html">
+    <meta property="og:title" content="Services | DEV Limited - Web Development & Emerging Tech">
+    <meta property="og:description" content="Custom web development, VR applications, and emerging technologies. We build what others won't—prototypes, proofs-of-concept, and specialized solutions.">
+    <meta property="og:image" content="https://devlimited.org/images/service-ar-solutions.jpg">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="DEV Limited">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://devlimited.org/services.html">
+    <meta property="twitter:title" content="Services | DEV Limited - Web Development & Emerging Tech">
+    <meta property="twitter:description" content="Custom web development, VR applications, and emerging technologies. We build what others won't—prototypes, proofs-of-concept, and specialized solutions.">
+    <meta property="twitter:image" content="https://devlimited.org/images/service-ar-solutions.jpg">
+
     <!-- Favicon -->
     <link rel="icon" sizes="192x192" href="images/favicon-192.png" type="image/png">
     <link rel="shortcut icon" href="images/favicon.png" type="image/png">
@@ -14,6 +33,71 @@
 
     <!-- Fonts -->
     <link rel="stylesheet" href="styles.css">
+
+    <!-- Structured Data - Breadcrumbs -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://devlimited.org/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Services",
+        "item": "https://devlimited.org/services.html"
+      }]
+    }
+    </script>
+
+    <!-- Structured Data - Services -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Web Development",
+      "provider": {
+        "@type": "Organization",
+        "name": "DEV Limited",
+        "url": "https://devlimited.org"
+      },
+      "description": "Custom web applications, prototypes, and proofs-of-concept for emerging technologies",
+      "areaServed": "United States",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Development Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Web Development",
+              "description": "Our primary focus. Complex web applications, prototypes, and proofs-of-concept that push technological boundaries. Technologies: React, Node.js, Python, Firebase, PostgreSQL, Docker, AWS."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "VR Application Development",
+              "description": "Immersive VR experiences for specialized applications where traditional solutions fall short. Technologies: Unity, Unreal Engine, Meta Quest, HTC Vive, SteamVR."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Emerging Technologies",
+              "description": "AR, custom integrations, and experimental tech. If it's hard, new, or unusual—we're interested. Includes proof-of-concept development, integration services, and consulting."
+            }
+          }
+        ]
+      }
+    }
+    </script>
 </head>
 <body>
     <!-- Header -->
@@ -134,7 +218,7 @@
         <div class="container">
             <div class="footer-content">
                 <div class="social-links">
-                    <a href="#" aria-label="LinkedIn" target="_blank">
+                    <a href="https://www.linkedin.com/company/devlimited" aria-label="LinkedIn" target="_blank" rel="noopener">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
                             <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
                         </svg>
