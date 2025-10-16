@@ -1,15 +1,13 @@
-const functions = require('firebase-functions');
+const {onCall, HttpsError} = require('firebase-functions/v2/https');
 const admin = require('firebase-admin');
 const nodemailer = require('nodemailer');
 
 // Initialize Firebase Admin
 admin.initializeApp();
 
-// Email configuration
-// You'll need to set these using: firebase functions:config:set gmail.email="your-email@gmail.com" gmail.password="your-app-password"
-// Or use environment variables in production
-const gmailEmail = functions.config().gmail?.email || process.env.GMAIL_EMAIL;
-const gmailPassword = functions.config().gmail?.password || process.env.GMAIL_PASSWORD;
+// Email configuration - using environment variables (.env file)
+const gmailEmail = process.env.GMAIL_EMAIL;
+const gmailPassword = process.env.GMAIL_PASSWORD;
 
 // Create reusable transporter
 const transporter = nodemailer.createTransport({
@@ -112,15 +110,19 @@ function validateAndSanitize(data) {
 }
 
 // Contact form submission handler
-exports.submitContactForm = functions.https.onCall(async (data, context) => {
+exports.submitContactForm = onCall({
+  cors: true,
+  invoker: 'public',
+}, async (request) => {
   try {
+    const data = request.data;
     // Rate limiting check (optional but recommended)
-    const ip = context.rawRequest?.ip || 'unknown';
+    const ip = request.rawRequest?.ip || 'unknown';
 
     // Validate and sanitize input
     const validation = validateAndSanitize(data);
     if (!validation.valid) {
-      throw new functions.https.HttpsError(
+      throw new HttpsError(
         'invalid-argument',
         validation.errors.join(', ')
       );
@@ -198,11 +200,11 @@ Submitted from IP: ${ip}
   } catch (error) {
     console.error('Error processing contact form:', error);
 
-    if (error instanceof functions.https.HttpsError) {
+    if (error instanceof HttpsError) {
       throw error;
     }
 
-    throw new functions.https.HttpsError(
+    throw new HttpsError(
       'internal',
       'An error occurred while processing your request. Please try again later.'
     );
@@ -210,23 +212,27 @@ Submitted from IP: ${ip}
 });
 
 // Newsletter subscription handler
-exports.submitNewsletter = functions.https.onCall(async (data, context) => {
+exports.submitNewsletter = onCall({
+  cors: true,
+  invoker: 'public',
+}, async (request) => {
   try {
-    const ip = context.rawRequest?.ip || 'unknown';
+    const data = request.data;
+    const ip = request.rawRequest?.ip || 'unknown';
 
     // Validate email
     const email = (data.email || '').trim().toLowerCase();
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailRegex.test(email)) {
-      throw new functions.https.HttpsError(
+      throw new HttpsError(
         'invalid-argument',
         'Invalid email address'
       );
     }
 
     if (email.length > 254) {
-      throw new functions.https.HttpsError(
+      throw new HttpsError(
         'invalid-argument',
         'Email address too long'
       );
@@ -276,11 +282,11 @@ exports.submitNewsletter = functions.https.onCall(async (data, context) => {
   } catch (error) {
     console.error('Error processing newsletter subscription:', error);
 
-    if (error instanceof functions.https.HttpsError) {
+    if (error instanceof HttpsError) {
       throw error;
     }
 
-    throw new functions.https.HttpsError(
+    throw new HttpsError(
       'internal',
       'An error occurred while processing your subscription. Please try again later.'
     );
