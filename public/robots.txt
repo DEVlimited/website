@@ -5,6 +5,10 @@ User-agent: *
 Allow: /
 Sitemap: https://devlimited.org/sitemap.xml
 
+# AI Discovery Files
+Allow: /.well-known/ai-plugin.json
+Allow: /.well-known/ai.txt
+
 # AI Crawlers - Explicit Allow
 User-agent: GPTBot
 Allow: /

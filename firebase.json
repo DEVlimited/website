@@ -4,6 +4,8 @@
     "ignore": [
       "firebase.json",
       "**/.*",
+      "!.well-known",
+      "!.well-known/**",
       "**/node_modules/**",
       "functions/**"
     ],
@@ -32,6 +34,40 @@
           {
             "key": "Cache-Control",
             "value": "max-age=31536000"
+          }
+        ]
+      },
+      {
+        "source": ".well-known/ai-plugin.json",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=3600"
+          },
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
+          }
+        ]
+      },
+      {
+        "source": ".well-known/ai.txt",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "text/plain; charset=utf-8"
+          },
+          {
+            "key": "Cache-Control",
+            "value": "public, max-age=3600"
+          },
+          {
+            "key": "Access-Control-Allow-Origin",
+            "value": "*"
           }
         ]
       }

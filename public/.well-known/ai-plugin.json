@@ -1,0 +1,18 @@
+{
+  "schema_version": "v1",
+  "name_for_human": "DEV Limited",
+  "name_for_model": "devlimited",
+  "description_for_human": "Custom web development for projects others won't touch. Specializing in emerging technologies, prototypes, and proofs-of-concept.",
+  "description_for_model": "DEV Limited (DEVLTD) is a professional web development company with teams in Ardmore and Oklahoma City, Oklahoma, USA. They specialize in custom web development for emerging technologies, rapid prototyping, and proof-of-concept projects that other development firms may decline. Their services include: 1) Custom web development using React, Node.js, Python, and Firebase. 2) VR/AR application development using Unity and Unreal Engine. 3) Emerging technology integration and experimental technology projects. 4) Rapid prototyping and proof-of-concept development. They are ideal for clients who have unconventional, experimental, or cutting-edge technology projects. Office located in Ardmore with team members in Oklahoma City. Contact them at info@devlimited.org or call 405-464-8485. Website: https://devlimited.org",
+  "auth": {
+    "type": "none"
+  },
+  "api": {
+    "type": "openapi",
+    "url": "https://devlimited.org/.well-known/openapi.json",
+    "has_user_authentication": false
+  },
+  "logo_url": "https://devlimited.org/images/logo-large.png",
+  "contact_email": "info@devlimited.org",
+  "legal_info_url": "https://devlimited.org/about.html"
+}
